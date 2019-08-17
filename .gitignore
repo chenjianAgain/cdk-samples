@@ -1,0 +1,10 @@
+*.js
+*.d.ts
+.app
+node_modules
+react-fargate/
+cdk.context.json
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
