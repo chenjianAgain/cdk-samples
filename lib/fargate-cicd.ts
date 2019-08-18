@@ -10,7 +10,6 @@ import ecsPatterns = require('@aws-cdk/aws-ecs-patterns');
 import codecommit = require('@aws-cdk/aws-codecommit');
 import { CodeBuildProject } from '@aws-cdk/aws-events-targets';
 import { Duration } from '@aws-cdk/core';
-import { Protocol } from '@aws-cdk/aws-ec2';
 
 const DOCKER_IMAGE_PREFIX = 'fargate-cicd-sample'
 const CODECOMMIT_REPO_NAME = 'fargate-cicd-sample'
