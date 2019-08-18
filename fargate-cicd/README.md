@@ -1,4 +1,4 @@
-# Fargate CICD
+# Fargate CICD with AWS CDK
 
 On git pushes to BitBucket, AWS CodeBuild being triggered by webhook, building new docker images, pushing to ECR the ECR event triggers the AWS CodePipeline to start the Fargate service rolling update.
 
