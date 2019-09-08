@@ -4,6 +4,7 @@
 node_modules
 react-fargate/
 cdk.context.json
+.DS*
 
 # CDK asset staging directory
 .cdk.staging
