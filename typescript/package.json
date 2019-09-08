@@ -1,0 +1,44 @@
+{
+  "name": "cdk-samples",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-samples": "bin/cdk-samples.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "8.10.45",
+    "typescript": "^3.3.3333",
+    "ts-node": "^8.1.0",
+    "aws-cdk": "^1.7.0"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.7.0",
+    "@aws-cdk/aws-cloudformation": "^1.7.0",
+    "@aws-cdk/aws-codebuild": "^1.7.0",
+    "@aws-cdk/aws-codecommit": "^1.7.0",
+    "@aws-cdk/aws-codepipeline": "^1.7.0",
+    "@aws-cdk/aws-codepipeline-actions": "^1.7.0",
+    "@aws-cdk/aws-ec2": "^1.7.0",
+    "@aws-cdk/aws-ecr": "^1.7.0",
+    "@aws-cdk/aws-ecs": "^1.7.0",
+    "@aws-cdk/aws-ecs-patterns": "^1.7.0",
+    "@aws-cdk/aws-eks": "^1.7.0",
+    "@aws-cdk/aws-events": "^1.7.0",
+    "@aws-cdk/aws-events-targets": "^1.7.0",
+    "@aws-cdk/aws-iam": "^1.7.0",
+    "@aws-cdk/aws-lambda": "^1.7.0",
+    "@aws-cdk/aws-logs": "^1.7.0",
+    "@aws-cdk/aws-s3": "^1.7.0",
+    "@aws-cdk/aws-s3-deployment": "^1.7.0",
+    "@aws-cdk/core": "^1.7.0",
+    "@aws-cdk/custom-resources": "^1.7.0",
+    "aws-sdk": "^2.522.0",
+    "minimatch": "^3.0.4",
+    "source-map-support": "^0.5.9",
+    "uuid": "^3.3.3"
+  }
+}
