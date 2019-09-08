@@ -1,7 +1,26 @@
-# Useful commands
+# pahud/cdk-samples
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+ A curated list of my personal CDK samples.
+
+
+# Serverless Rest API
+_TBD_
+
+# Fargate CI/CD
+
+On git pushes to BitBucket, AWS CodeBuild being triggered by webhook, building new docker images, pushing to ECR the ECR event triggers the AWS CodePipeline to start the Fargate service rolling update.
+
+![](fargate-cicd/images/fargate-cicd-cdk.png)
+
+
+
+## Sample Code
+
+Check the [sample code](https://github.com/pahud/cdk-samples/blob/master/lib/fargate-cicd.ts) 
+
+
+
+## Tweets
+
+tweets([1](https://twitter.com/pahudnet/status/1162626512064897024) and [2](https://twitter.com/pahudnet/status/1162970527989825536)).
+
