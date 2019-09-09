@@ -1,4 +1,4 @@
-# pahud/cdk-samples
+# cdk-samples in TypeScript
 
  A curated list of my personal CDK samples in **TypeScript**. Check [bin/cdk-samples.ts](bin/cdk-samples.ts) for all available samples and usage.
 
