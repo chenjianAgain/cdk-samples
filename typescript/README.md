@@ -1,6 +1,6 @@
 # cdk-samples in TypeScript
 
- A curated list of my personal CDK samples in **TypeScript**. Check [bin/cdk-samples.ts](bin/cdk-samples.ts) for all available samples and usage.
+A curated list of AWS CDK samples in **TypeScript**. Check [bin/cdk-samples.ts](bin/cdk-samples.ts) for all available samples and usage.
 
 
 
