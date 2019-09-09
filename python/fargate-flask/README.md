@@ -42,7 +42,7 @@ $ pip install -r requirements.txt
 # Deploy the Stack
 
 ```bash
-$ cd fargate-flash
+$ cd fargate-flask
 $ cdk synth -c region=REGION
 $ cdk deploy -c region=REGION
 ```
