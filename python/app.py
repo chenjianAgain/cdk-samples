@@ -3,9 +3,8 @@
 import os
 from aws_cdk import core
 from aws_cdk.core import Stack, Construct, Environment
-from cdk_py_samples.fargate_flask_stack import CdkPyFargateStack
-# from cdk_py_samples.amazon_eks_stack import CdkPyEksStack
-
+from python_samples.fargate_flask_stack import CdkPyFargateStack
+from python_samples.amazon_eks_cluster import CdkPyEksClusterStack
 
 app = core.App()
 
@@ -26,9 +25,9 @@ CdkPyFargateStack(app, "cdk-py-fargate-flask", env=AWS_ENV)
 
 '''
 Amaozn EKS cluster and nodegroup(s)
-Usage: cdk deploy -c region=ap-northeast-1 cdk-py-eks
+Usage: cdk deploy -c region=ap-northeast-1 cdk-py-eks-cluster
 '''
-# eks_demo = CdkPyEksStack(app, "cdk-py-eks", env=AWS_ENV)
+CdkPyEksClusterStack(app, "cdk-py-eks-cluster", env=AWS_ENV)
 
 
 app.synth()
