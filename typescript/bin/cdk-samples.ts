@@ -46,7 +46,7 @@ const fargateEventTarget = new FargateEventTarget(app, 'fargateEventTarget', {
  * https://github.com/pahud/cdk-samples/tree/master/typescript/serverless-rest-api
  * Sample: cdk deploy -c region=ap-northeast-1 serverlessApi
  */
-const serverlessApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', {
+const serverlessRestApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', {
     env: env
 })
 
