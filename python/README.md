@@ -24,7 +24,10 @@ $ cdk list
 
 # Available Samples
 
-- [x] **fargate_flask** - Flask app running in AWS Fargate with ALB([README](fargate_flask/README.md))
+- [x] **cdk-py-fargate-flask** - Flask app running in AWS Fargate with ALB([README](fargate_flask.README.md))
+- [x] **cdk-py-eks-cluster** - Amaozn EKS cluster and nodegroup(s)
+
+
 
 
 
