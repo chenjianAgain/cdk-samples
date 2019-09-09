@@ -17,13 +17,14 @@ $ pip install -r requirements.txt
 # list all available stacks
 $ cdk list
 # Now you can 'cdk deploy' your favorite stack from the list
+# e.g. cdk deploy -c region=ap-northeast-1 cdk-py-fargate-flask
 ```
 
 
 
 # Available Samples
 
-- [x] **fargate-flask** - Flask app running in AWS Fargate with ALB([README](python/fargate-flask/README.md))
+- [x] **fargate_flask** - Flask app running in AWS Fargate with ALB([README](fargate_flask/README.md))
 
 
 
