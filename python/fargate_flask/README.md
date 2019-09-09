@@ -7,7 +7,7 @@ This sample creates a `Flask` app running in AWS Fargate with ALB.
 # Prepare your virtualenv
 check [here](/python/README.md#prepare-your-virtualenv)
 
-# Prepare for flask-docker-app
+# Prepare your flask-docker-app
 
 ```bash
 $ cd flask-docker-app
@@ -16,9 +16,6 @@ $ source .env/bin/activate
 $ pip install -r requirements.txt
 ```
 
-
-
-
 # Deploy the Stack
 
 ```bash
@@ -26,7 +23,6 @@ $ cd cdk-samples/python
 $ cdk synth -c region=ap-northeast-1 cdk-py-fargate-flask
 $ cdk deploy -c region=ap-northeast-1 cdk-py-fargate-flask
 ```
-
 
 ![](https://pbs.twimg.com/media/ED7YUbfU4AAth_r?format=jpg&name=4096x4096)
 ![](https://pbs.twimg.com/media/ED7YUp6UcAEVcDj?format=jpg&name=4096x4096)
