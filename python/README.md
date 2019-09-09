@@ -4,7 +4,7 @@ A curated list of AWS CDK samples in **Python**. Check [app.py](./app.py) for us
 
 Make sure you enter the `virtualenv` and `pip install` all required modules in `requirements.txt`. 
 
-For example:
+## Prepare your virtualenv
 
 ```bash
 $ cd cdk-samples/python
