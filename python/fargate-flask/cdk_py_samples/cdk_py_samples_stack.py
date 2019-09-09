@@ -1,4 +1,4 @@
-from aws_cdk import core, aws_ec2, aws_iam, aws_ecs, aws_ecs_patterns
+from aws_cdk import core, aws_ec2, aws_ecs, aws_ecs_patterns
 
 
 class CdkPyFargateStack(core.Stack):
