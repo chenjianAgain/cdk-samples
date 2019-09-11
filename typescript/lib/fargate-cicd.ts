@@ -94,7 +94,7 @@ export class FargateCICDStack extends cdk.Stack {
             vpc: vpc
         });
 
-        const fargatesvc = new ecsPatterns.LoadBalancedFargateService(this, 'express', {
+        const fargatesvc = new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'express', {
             cluster: cluster,
             containerName: 'express',
             // image: ecs.ContainerImage.fromRegistry('abiosoft/caddy'),
@@ -102,7 +102,6 @@ export class FargateCICDStack extends cdk.Stack {
             // image: ecs.ContainerImage.fromEcrRepository(this.ecrRepository),
             containerPort: 3000,
             memoryLimitMiB: 512,
-            loadBalancerType: ecsPatterns.LoadBalancerType.APPLICATION,
         })
 
         // if the default image is not from ECR, the ECS task execution role will not have ECR pull privileges

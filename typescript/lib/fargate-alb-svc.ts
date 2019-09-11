@@ -1,8 +1,7 @@
 import cdk = require('@aws-cdk/core');
 import { Vpc } from '@aws-cdk/aws-ec2';
 import { Cluster, ContainerImage } from '@aws-cdk/aws-ecs';
-import { LoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns';
-
+import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns';
 
 export class FargateAlbSvcStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -16,7 +15,7 @@ export class FargateAlbSvcStack extends cdk.Stack {
       vpc: vpc
     })
 
-    const svc = new LoadBalancedFargateService(this, 'FargateService', {
+    const svc = new ApplicationLoadBalancedFargateService(this, 'FargateService', {
       cluster: cluster,
       image: ContainerImage.fromRegistry('abiosoft/caddy:php'),
       containerPort: 2015,
