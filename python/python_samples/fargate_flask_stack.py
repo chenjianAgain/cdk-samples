@@ -11,7 +11,7 @@ class CdkPyFargateStack(core.Stack):
 
         # ECS cluster
         cluster = aws_ecs.Cluster(self, 'Cluster', vpc=vpc)
-        svc = aws_ecs_patterns.LoadBalancedFargateService(
+        svc = aws_ecs_patterns.ApplicationLoadBalancedFargateService(
             self, 'FargateService',
             cluster=cluster,
             image=aws_ecs.ContainerImage.from_asset('flask-docker-app'),
