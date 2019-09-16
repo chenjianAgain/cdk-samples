@@ -5,6 +5,8 @@ from aws_cdk import core
 from aws_cdk.core import Stack, Construct, Environment
 from python_samples.fargate_flask_stack import CdkPyFargateStack
 from python_samples.amazon_eks_cluster import CdkPyEksClusterStack
+from python_samples.serverless_rest_api import CdkPyServerlessRestApiStack
+from python_samples.cross_stack import CdkPyCrossStackInfraStack, CdkPyCrossStackFargateStack, CdkPyCrossStackFargateStack2
 
 app = core.App()
 
@@ -30,4 +32,18 @@ Usage: cdk deploy -c region=ap-northeast-1 cdk-py-eks-cluster
 CdkPyEksClusterStack(app, "cdk-py-eks-cluster", env=AWS_ENV)
 
 
-app.synth()
+'''
+Serverless Rest API
+Usage: cdk deploy -c region=ap-northeast-1 cdk-py-serverless-rest-api
+'''
+CdkPyServerlessRestApiStack(app, "cdk-py-serverless-rest-api", env=AWS_ENV)
+
+'''
+cross-stack demo
+'''
+infra_stack = CdkPyCrossStackInfraStack(app, "cdk-py-xstack-infra", env=AWS_ENV)
+fargate_svc = CdkPyCrossStackFargateStack(app, "cdk-py-xstackk-fargate-svc1", env=AWS_ENV, vpc=infra_stack.vpc)
+fargate_svc2 = CdkPyCrossStackFargateStack2(app, "cdk-py-xstackk-fargate-svc2",
+                                            env=AWS_ENV,
+                                            vpcId=core.Token.as_list(core.Fn.import_value('ExportedVpcId'))[0]
+                                            )
