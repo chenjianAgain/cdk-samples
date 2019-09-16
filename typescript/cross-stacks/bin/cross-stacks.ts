@@ -2,7 +2,6 @@
 import 'source-map-support/register';
 import cdk = require('@aws-cdk/core');
 import { InfraStack, FargateStack, FargateStack2 } from '../lib/cross-stacks-stack';
-import { Vpc } from '@aws-cdk/aws-ec2';
 
 const app = new cdk.App();
 
@@ -14,10 +13,10 @@ const env = {
 /**
  * create our infra VPC
  */
-const infra = new InfraStack(app, 'Infratack', { env });
+const infra = new InfraStack(app, 'InfraStack', { env });
 
 /**
- * create our Fargate service in the VPC from Infratack
+ * create our Fargate service in the VPC from InfraStack
  */
 const svc = new FargateStack(app, 'FargateServiceStack', {
     env,
@@ -25,7 +24,7 @@ const svc = new FargateStack(app, 'FargateServiceStack', {
 })
 
 /**
- * we can get the vpcId from the exported value from Infratack
+ * we can get the vpcId from the exported value from InfraStack
  */
 const svc2 = new FargateStack2(app, 'FargateServiceStack2', {
     env,
