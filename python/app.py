@@ -42,8 +42,8 @@ CdkPyServerlessRestApiStack(app, "cdk-py-serverless-rest-api", env=AWS_ENV)
 cross-stack demo
 '''
 infra_stack = CdkPyCrossStackInfraStack(app, "cdk-py-xstack-infra", env=AWS_ENV)
-fargate_svc = CdkPyCrossStackFargateStack(app, "cdk-py-xstackk-fargate-svc1", env=AWS_ENV, vpc=infra_stack.vpc)
-fargate_svc2 = CdkPyCrossStackFargateStack2(app, "cdk-py-xstackk-fargate-svc2",
+fargate_svc = CdkPyCrossStackFargateStack(app, "cdk-py-xstack-fargate-svc1", env=AWS_ENV, vpc=infra_stack.vpc)
+fargate_svc2 = CdkPyCrossStackFargateStack2(app, "cdk-py-xstack-fargate-svc2",
                                             env=AWS_ENV,
                                             vpcId=core.Token.as_list(core.Fn.import_value('ExportedVpcId'))[0]
                                             )
