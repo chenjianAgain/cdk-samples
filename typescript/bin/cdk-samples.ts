@@ -4,8 +4,10 @@ import cdk = require('@aws-cdk/core');
 import { FargateAlbSvcStack } from '../lib/fargate-alb-svc';
 import { FargateCICDStack } from '../lib/fargate-cicd';
 import { ServerlessRestApiStack } from '../lib/serverless-rest-api';
-// import { AwsFireLensStack } from '../lib/awsfirelens';
+import { AwsFireLensStack } from '../lib/awsfirelens';
 import { FargateEventTarget } from '../lib/fargate-event-targets';
+import { ContainerDefinition, ContainerImage } from '@aws-cdk/aws-ecs';
+import { EksIrsaStack } from '../lib/eks-irsa';
 const app = new cdk.App();
 
 const env = {
@@ -18,18 +20,15 @@ const env = {
  * https://github.com/pahud/cdk-samples/tree/master/typescript/fargate-alb-svc
  * Sample: cdk deploy -c region=ap-northeast-1 fargateAlbSvc
  */
-const fargateAlbSvc = new FargateAlbSvcStack(app, 'FargateAlbService', {
-    env: env
-})
+const fargateAlbSvc = new FargateAlbSvcStack(app, 'FargateAlbService', { env })
+
 
 /**
  * Building Fargate CI/CD pipelines from scratch with AWS CDK
  * https://github.com/pahud/cdk-samples/tree/master/typescript/fargate-cicd
  * Sample: cdk deploy -c region=ap-northeast-1 fargatecicd
  */
-const fargatecicd = new FargateCICDStack(app, 'FargateCICD', {
-    env: env
-})
+const fargatecicd = new FargateCICDStack(app, 'FargateCICD', { env })
 
 /**
  * Fargate as CloudWatch Events target 
@@ -38,7 +37,7 @@ const fargatecicd = new FargateCICDStack(app, 'FargateCICD', {
  */
 const fargateEventTarget = new FargateEventTarget(app, 'fargateEventTarget', {
     env: env,
-    topicArn: app.node.tryGetContext('topicArn') || 'undefined'
+    topicArn: app.node.tryGetContext('topicArn') || 'arn:aws:sns:ap-northeast-1:112233445566:undefined'
 })
 
 /**
@@ -46,14 +45,21 @@ const fargateEventTarget = new FargateEventTarget(app, 'fargateEventTarget', {
  * https://github.com/pahud/cdk-samples/tree/master/typescript/serverless-rest-api
  * Sample: cdk deploy -c region=ap-northeast-1 serverlessApi
  */
-const serverlessRestApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', {
-    env: env
-})
+const serverlessRestApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', { env })
+
+
+/**
+ * 
+ */
+const eksIrsaDemo = new EksIrsaStack(app, 'EksIrsaStack', { env })
 
 /**
  * WIP
  */
-// const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo1', {
-//     env: env
+// const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo', {
+//     env: env,
+//     containerName: 'nginx',
+//     image: 'nginx',
+//     port: 80
 // })
 
