@@ -4,10 +4,10 @@ import cdk = require('@aws-cdk/core');
 import { FargateAlbSvcStack } from '../lib/fargate-alb-svc';
 import { FargateCICDStack } from '../lib/fargate-cicd';
 import { ServerlessRestApiStack } from '../lib/serverless-rest-api';
-import { AwsFireLensStack } from '../lib/awsfirelens';
+// import { AwsFireLensStack } from '../lib/awsfirelens';
 import { FargateEventTarget } from '../lib/fargate-event-targets';
-import { ContainerDefinition, ContainerImage } from '@aws-cdk/aws-ecs';
 import { EksIrsaStack } from '../lib/eks-irsa';
+import { EcsEc2Stack } from '../lib/ecs';
 const app = new cdk.App();
 
 const env = {
@@ -21,6 +21,13 @@ const env = {
  * Sample: cdk deploy -c region=ap-northeast-1 fargateAlbSvc
  */
 const fargateAlbSvc = new FargateAlbSvcStack(app, 'FargateAlbService', { env })
+
+/**
+ * Amazon ECS services on EC2
+ * Sample: cdk deploy -c region=ap-northeast-1 ecsEc2Service
+ */
+const ecsEc2Service = new EcsEc2Stack(app, 'EcsEc2Service', { env })
+
 
 
 /**
