@@ -27,10 +27,12 @@ $ cdk list
 
 # Available Samples
 
-- [x] **fargateAlbSvc** - A simple PHP service running with AWS Fargate and ALB
-- [x] **fargatecicd** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./fargate-cicd/README.md))
+- [x] **EcsEc2Service** Amazon ECS running with EC2
+- [x] **EksIrsaStack** Amazon EKS with IRSA support
+- [x] **FargateAlbService** - A simple PHP service running with AWS Fargate and ALB
+- [x] **FargateCICD** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./fargate-cicd/README.md))
+- [x] **ServerlessRestAPI** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateway
 - [x] **fargateEventTarget** - Fargate as CloudWatch Events target 
-- [x] **serverlessRestApi** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateway
 - [ ] **awsFireLensDemo** - [WIP] AWS Fargate with Firelens log driver
 
 
