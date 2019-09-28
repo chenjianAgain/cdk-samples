@@ -18,13 +18,13 @@ const env = {
 /**
  * A simple PHP service running with AWS Fargate and ALB
  * https://github.com/pahud/cdk-samples/tree/master/typescript/fargate-alb-svc
- * Sample: cdk deploy -c region=ap-northeast-1 fargateAlbSvc
+ * Sample: cdk deploy -c region=ap-northeast-1 FargateAlbService
  */
 const fargateAlbSvc = new FargateAlbSvcStack(app, 'FargateAlbService', { env })
 
 /**
  * Amazon ECS services on EC2
- * Sample: cdk deploy -c region=ap-northeast-1 ecsEc2Service
+ * Sample: cdk deploy -c region=ap-northeast-1 EcsEc2Service
  */
 const ecsEc2Service = new EcsEc2Stack(app, 'EcsEc2Service', { env })
 
@@ -33,7 +33,7 @@ const ecsEc2Service = new EcsEc2Stack(app, 'EcsEc2Service', { env })
 /**
  * Building Fargate CI/CD pipelines from scratch with AWS CDK
  * https://github.com/pahud/cdk-samples/tree/master/typescript/fargate-cicd
- * Sample: cdk deploy -c region=ap-northeast-1 fargatecicd
+ * Sample: cdk deploy -c region=ap-northeast-1 FargateCICD
  */
 const fargatecicd = new FargateCICDStack(app, 'FargateCICD', { env })
 
@@ -50,7 +50,7 @@ const fargateEventTarget = new FargateEventTarget(app, 'fargateEventTarget', {
 /**
  * Serverless REST API with AWS Lambda in VPC and Amazon API Gateway
  * https://github.com/pahud/cdk-samples/tree/master/typescript/serverless-rest-api
- * Sample: cdk deploy -c region=ap-northeast-1 serverlessApi
+ * Sample: cdk deploy -c region=ap-northeast-1 ServerlessRestAPI
  */
 const serverlessRestApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', { env })
 
