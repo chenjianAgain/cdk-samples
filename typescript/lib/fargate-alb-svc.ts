@@ -22,11 +22,14 @@ export class FargateAlbSvcStack extends cdk.Stack {
       cpu: '256'
     })
 
-    taskDefinition.addContainer('php', {
-      image: ContainerImage.fromRegistry('abiosoft/caddy:php'),
-    }).addPortMappings({
-      containerPort: 2015
-    })
+    taskDefinition
+      .addContainer('php', {
+        image: ContainerImage.fromRegistry('abiosoft/caddy:php'),
+      })
+      .addPortMappings({
+        containerPort: 2015
+      })
+
     const svc = new ApplicationLoadBalancedFargateService(this, 'FargateService', {
       cluster,
       taskDefinition
