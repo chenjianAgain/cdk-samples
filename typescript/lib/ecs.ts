@@ -15,7 +15,7 @@ export class EcsEc2Stack extends cdk.Stack {
 
     const cluster = new ecs.Cluster(this, 'Cluster', {
       clusterName: 'cdk-samples',
-      vpc: vpc
+      vpc
     });
 
     cluster.addCapacity('asgSpot', {
@@ -24,7 +24,8 @@ export class EcsEc2Stack extends cdk.Stack {
       desiredCapacity: 1,
       instanceType: new ec2.InstanceType('c5.xlarge'),
       spotPrice: '0.0735',
-    })
+
+    });
 
     cluster.addCapacity('asgOd', {
       maxCapacity: 10,
@@ -33,16 +34,24 @@ export class EcsEc2Stack extends cdk.Stack {
       instanceType: new ec2.InstanceType('t3.large'),
     })
 
-    const webSvc = new ecsPatterns.ApplicationLoadBalancedEc2Service(this, 'webSvc', {
-      cluster: cluster,
-      containerName: 'flask',
-      // image: ecs.ContainerImage.fromRegistry('abiosoft/caddy:php'),
+    const taskDefinition = new ecs.TaskDefinition(this, 'Task', {
+      compatibility: ecs.Compatibility.FARGATE,
+      memoryMiB: '512',
+      cpu: '256'
+    })
+
+    taskDefinition.addContainer('flask', {
       image: ecs.ContainerImage.fromAsset('../python/flask-docker-app'),
-      containerPort: 5000,
       environment: {
         PLATFORM: 'Amazon ECS'
       },
-      memoryLimitMiB: 512,
+    }).addPortMappings({
+      containerPort: 5000
+    });
+
+    const webSvc = new ecsPatterns.ApplicationLoadBalancedEc2Service(this, 'webSvc', {
+      cluster,
+      taskDefinition,
       desiredCount: 3
     })
 
