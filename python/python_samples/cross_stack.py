@@ -17,13 +17,13 @@ class CdkPyCrossStackFargateStack(core.Stack):
         self.vpc = vpc
 
         cluster = aws_ecs.Cluster(self, 'Cluster', vpc=self.vpc)
-        task = aws_ecs.TaskDefinition(self, 'Task',
-                                      compatibility=aws_ecs.Compatibility.FARGATE,
-                                      memory_mib='512',
-                                      cpu='256'
-                                      )
+        task = aws_ecs.FargateTaskDefinition(self, 'Task',
+                                             memory_limit_mib=512,
+                                             cpu=256,
+                                             )
 
-        task.add_container('Nginx', image=aws_ecs.ContainerImage.from_registry('nginx')).port_mappings(80)
+        task.add_container('Nginx', image=aws_ecs.ContainerImage.from_registry(
+            'nginx')).add_port_mappings(aws_ecs.PortMapping(container_port=80))
 
         svc = aws_ecs_patterns.ApplicationLoadBalancedFargateService(
             self, 'FargateService',
@@ -38,14 +38,16 @@ class CdkPyCrossStackFargateStack2(core.Stack):
     def __init__(self, scope: core.Construct, id: str, vpcId: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        cluster = aws_ecs.Cluster(self, 'Cluster', vpc=aws_ec2.Vpc.from_lookup(self, 'Vpc', vpc_id=vpcId))
-        task = aws_ecs.TaskDefinition(self, 'Task',
-                                      compatibility=aws_ecs.Compatibility.FARGATE,
-                                      memory_mib='512',
-                                      cpu='256'
-                                      )
+        cluster = aws_ecs.Cluster(self, 'Cluster',
+                                  vpc=scope.node.try_find_child(vpcId)
+                                  )
+        task = aws_ecs.FargateTaskDefinition(self, 'Task',
+                                             memory_limit_mib=512,
+                                             cpu=256,
+                                             )
 
-        task.add_container('Nginx', image=aws_ecs.ContainerImage.from_registry('nginx')).port_mappings(80)
+        task.add_container('Nginx', image=aws_ecs.ContainerImage.from_registry(
+            'nginx')).add_port_mappings(aws_ecs.PortMapping(container_port=80))
 
         svc = aws_ecs_patterns.ApplicationLoadBalancedFargateService(
             self, 'FargateService',

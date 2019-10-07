@@ -12,17 +12,16 @@ class CdkPyFargateStack(core.Stack):
         # ECS cluster
         cluster = aws_ecs.Cluster(self, 'Cluster', vpc=vpc)
 
-        task = aws_ecs.TaskDefinition(self, 'Task',
-                                      compatibility=aws_ecs.Compatibility.FARGATE,
-                                      cpu='256',
-                                      memory_mib='512'
-                                      )
+        task = aws_ecs.FargateTaskDefinition(self, 'Task',
+                                             cpu=256,
+                                             memory_limit_mib=512,
+                                             )
         task.add_container('flask',
                            image=aws_ecs.ContainerImage.from_asset('flask-docker-app'),
                            environment={
                                'PLATFORM': 'AWS Fargate :-)'
                            }
-                           ).add_port_mappings(5000)
+                           ).add_port_mappings(aws_ecs.PortMapping(container_port=5000))
 
         svc = aws_ecs_patterns.ApplicationLoadBalancedFargateService(self, 'svc',
                                                                      cluster=cluster,
