@@ -8,7 +8,7 @@ On git pushes to BitBucket, AWS CodeBuild being triggered by webhook, building n
 
 ## Sample Code
 
-Check the [sample code](https://github.com/pahud/cdk-samples/blob/master/lib/fargate-cicd.ts) 
+Check the [sample code](../lib/fargate-cicd.ts) 
 
 
 
