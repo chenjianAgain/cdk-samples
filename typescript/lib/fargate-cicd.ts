@@ -101,7 +101,7 @@ export class FargateCICDStack extends cdk.Stack {
         });
 
         const expressContainer = taskDefinition.addContainer('express', {
-            image: ecs.ContainerImage.fromAsset(__dirname + '/../app/')
+            image: ecs.ContainerImage.fromAsset(__dirname + '/../../express/')
         });
 
         expressContainer.addPortMappings({
