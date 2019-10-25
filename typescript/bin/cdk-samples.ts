@@ -4,16 +4,20 @@ import cdk = require('@aws-cdk/core');
 import { FargateAlbSvcStack } from '../lib/fargate-alb-svc';
 import { FargateCICDStack } from '../lib/fargate-cicd';
 import { ServerlessRestApiStack } from '../lib/serverless-rest-api';
-// import { AwsFireLensStack } from '../lib/awsfirelens';
+import { AwsFireLensStack } from '../lib/awsfirelens';
 import { FargateEventTarget } from '../lib/fargate-event-targets';
 import { EksIrsaStack } from '../lib/eks-irsa';
 import { EcsEc2Stack } from '../lib/ecs';
+import { TranscribeStack } from '../lib/transcribe';
+import { ApiGatewayCustomDomainStack } from '../lib/apig-custom-domain';
+import { ApiSixStack } from '../lib/apisix';
 const app = new cdk.App();
 
 const env = {
     region: app.node.tryGetContext('region') || process.env.CDK_INTEG_REGION || process.env.CDK_DEFAULT_REGION,
     account: app.node.tryGetContext('account') || process.env.CDK_INTEG_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT
 };
+
 
 /**
  * A simple PHP service running with AWS Fargate and ALB
@@ -26,7 +30,7 @@ const fargateAlbSvc = new FargateAlbSvcStack(app, 'FargateAlbService', { env })
  * Amazon ECS services on EC2
  * Sample: cdk deploy -c region=ap-northeast-1 EcsEc2Service
  */
-const ecsEc2Service = new EcsEc2Stack(app, 'EcsEc2Service', { env })
+const ecsEc2Service = new EcsEc2Stack(app, 'EcsEc2Service2', { env })
 
 
 
@@ -61,12 +65,24 @@ const serverlessRestApi = new ServerlessRestApiStack(app, 'ServerlessRestAPI', {
 const eksIrsaDemo = new EksIrsaStack(app, 'EksIrsaStack', { env })
 
 /**
+ * 
+ */
+const t = new TranscribeStack(app, 'TranscribeStack', { env })
+
+/**
  * WIP
  */
-// const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo', {
-//     env: env,
-//     containerName: 'nginx',
-//     image: 'nginx',
-//     port: 80
-// })
+const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo', {
+    env: env,
+    containerName: 'nginx',
+    image: 'nginx',
+    port: 80
+})
 
+/**
+ * WIP
+ */
+const apiSix = new ApiSixStack(app, 'apiSix', { env })
+
+
+const apiGatewayCustomDomain = new ApiGatewayCustomDomainStack(app, 'apiGatewayCustomDomain', { env })
