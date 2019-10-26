@@ -1,4 +1,4 @@
-# Running APISIX in AWS
+# Running APISIX in AWS with AWS CDK
 
 [APISIX](https://github.com/iresty/apisix) is a cloud-native microservices API gateway, delivering the ultimate performance, security, open source and scalable platform for all your APIs and microservices. 
 
