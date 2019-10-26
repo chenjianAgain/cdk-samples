@@ -34,7 +34,8 @@ export class ApiSixStack extends cdk.Stack {
 
     taskDefinition
       .addContainer('etcd', {
-        image: ContainerImage.fromRegistry('gcr.io/etcd-development/etcd:v3.3.12'),
+        image: ContainerImage.fromRegistry('gcr.azk8s.cn/etcd-development/etcd:v3.3.12'),
+        // image: ContainerImage.fromRegistry('gcr.io/etcd-development/etcd:v3.3.12'),
       })
       .addPortMappings({
         containerPort: 2379
