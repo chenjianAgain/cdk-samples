@@ -33,6 +33,9 @@ $ cdk list
 - [x] **FargateCICD** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./fargate-cicd/README.md))
 - [x] **ServerlessRestAPI** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateway
 - [x] **fargateEventTarget** - Fargate as CloudWatch Events target 
+- [x] **APISIX** - [APISIX refarch on AWS](apisix/README.md)([tweet](https://twitter.com/pahudnet/status/1187770945471049729)) 
+- [x] **apiGatewayCustomDomain** API Gateway wildcard custom domain with ACM and Route53 sample([tweet](https://twitter.com/pahudnet/status/1186471121769525249))
+- [x] **TranscribeStack** - Amazon Transcribe with Auto SRT generation refarch([tweet](https://twitter.com/pahudnet/status/1183307485035151360)|[tweet](https://twitter.com/pahudnet/status/1183607846425903104))
 - [ ] **awsFireLensDemo** - [WIP] AWS Fargate with Firelens log driver
 
 
