@@ -11,6 +11,7 @@ import { EcsEc2Stack } from '../lib/ecs';
 import { TranscribeStack } from '../lib/transcribe';
 import { ApiGatewayCustomDomainStack } from '../lib/apig-custom-domain';
 import { ApiSixStack } from '../lib/apisix';
+import { EksNginxStack } from '../lib/eks-nginx-svc';
 const app = new cdk.App();
 
 const env = {
@@ -68,6 +69,11 @@ const eksIrsaDemo = new EksIrsaStack(app, 'EksIrsaStack', { env })
  * 
  */
 const t = new TranscribeStack(app, 'TranscribeStack', { env })
+
+/**
+ *  Amazon EkS with Nginx service
+ */
+const eksNginxSvc = new EksNginxStack(app, 'EksNginxService', { env })
 
 /**
  * WIP
