@@ -6,6 +6,7 @@ from aws_cdk.core import Stack, Construct, Environment
 from python_samples.fargate_flask_stack import CdkPyFargateStack
 from python_samples.amazon_eks_cluster import CdkPyEksClusterStack
 from python_samples.serverless_rest_api import CdkPyServerlessRestApiStack
+from python_samples.custom_api import CdkCustomAmiStack
 from python_samples.cross_stack import CdkPyCrossStackInfraStack, CdkPyCrossStackFargateStack, CdkPyCrossStackFargateStack2
 
 app = core.App()
@@ -16,6 +17,12 @@ REGION = app.node.try_get_context('region') or os.environ.get(
     'CDK_DEFAULT_REGION', 'unknown')
 
 AWS_ENV = Environment(region=REGION, account=ACCOUNT)
+
+
+'''
+Create EC2 with custom Linux AMI
+'''
+CdkCustomAmiStack(app, "cdk-ec2-custom-ami", env=AWS_ENV)
 
 
 '''
