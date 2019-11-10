@@ -25,18 +25,27 @@ $ cdk list
 
 
 
-# Available Samples
+# Available Sample Libraries
 
 - [x] **EcsEc2Service** Amazon ECS running with EC2
-- [x] **EksIrsaStack** Amazon EKS with IRSA support
 - [x] **FargateAlbService** - A simple PHP service running with AWS Fargate and ALB
 - [x] **FargateCICD** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./fargate-cicd/README.md))
-- [x] **ServerlessRestAPI** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateway
+- [x] **ServerlessRestAPI** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateweway([tweet](https://twitter.com/pahudnet/status/1192283115793764352))
 - [x] **fargateEventTarget** - Fargate as CloudWatch Events target 
 - [x] **APISIX** - [APISIX refarch on AWS](apisix/README.md)([tweet](https://twitter.com/pahudnet/status/1187770945471049729)) 
 - [x] **apiGatewayCustomDomain** API Gateway wildcard custom domain with ACM and Route53 sample([tweet](https://twitter.com/pahudnet/status/1186471121769525249))
 - [x] **TranscribeStack** - Amazon Transcribe with Auto SRT generation refarch([tweet](https://twitter.com/pahudnet/status/1183307485035151360)|[tweet](https://twitter.com/pahudnet/status/1183607846425903104))
+- [x] **LambdaRestApiStack** - API Gateway REST API with AWS Lambda as backend handler([tweet](https://twitter.com/pahudnet/status/1192283115793764352))
 - [ ] **awsFireLensDemo** - [WIP] AWS Fargate with Firelens log driver
+- [ ] **EksIrsaStack** Amazon EKS with IRSA support
 
 
+
+# Available NPM Packages
+
+The following samples were published in npmjs as a standalone package you may import as a CDK construct library.
+
+
+
+- [x] **[aws-codebuild-patterns](https://img.shields.io/badge/source-cdk--samples-green)**  [![npm version](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns.svg)](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns)
 
