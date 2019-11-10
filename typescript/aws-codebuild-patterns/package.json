@@ -1,0 +1,34 @@
+{
+  "name": "@pahud/aws-codebuild-patterns",
+  "version": "1.0.2",
+  "description": "",
+  "main": "lib/index.js",
+  "keywords": [
+    "aws",
+    "cdk",
+    "github",
+    "autobuild",
+    "codebuild",
+    "@pahud"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pahud/cdk-samples.git",
+    "directory": "typescript/aws-codebuild-patterns"
+  },
+  "types": "lib/index.d.ts",
+  "author": "Pahud Hsieh <pahudnet@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-cdk/aws-codebuild": "^1.15.0",
+    "@aws-cdk/aws-events": "^1.15.0"
+  }
+}
