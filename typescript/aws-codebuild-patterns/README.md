@@ -1,4 +1,6 @@
 
+[![npm version](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns.svg)](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns)
+
 # @pahud/aws-codebuild-patterns
 
 This package helps you build a automated `AWS CodeBuild` project with `AWS CDK` that builds any public git repository containing the `Dockerfile`, tags the image and eventually pushes to a seperate `Amazon ECR` repository.
