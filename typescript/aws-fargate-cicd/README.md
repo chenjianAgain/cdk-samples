@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/%40pahud%2Faws-fargate-cicd.svg)](https://badge.fury.io/js/%40pahud%2Faws-fargate-cicd)
 
-# Generate Fargate CI/CD pipeline from given source repo with AWS CDK
+# Generate Fargate CI/CD pipeline from any given source repo with AWS CDK
 
 This CDK construct library helps you generate a complete Fargate CI/CD pipeline with a provided source repository such as Github, BitBucket or CodeCommit.
 
