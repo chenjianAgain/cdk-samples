@@ -47,5 +47,7 @@ The following samples were published in npmjs as a standalone package you may im
 
 
 
-- [x] **[aws-codebuild-patterns](https://img.shields.io/badge/source-cdk--samples-green)**  [![npm version](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns.svg)](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns)
+- [x] **[@pahud/aws-codebuild-patterns](aws-codebuild-patterns/)**  [![npm version](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns.svg)](https://badge.fury.io/js/%40pahud%2Faws-codebuild-patterns)
+- [x] **[@pahud/aws-fargate-cicd](fargate-cicd/)**  [![npm version](https://badge.fury.io/js/%40pahud%2Faws-fargate-cicd.svg)](https://badge.fury.io/js/%40pahud%2Faws-fargate-cicd)
+
 
