@@ -4,7 +4,7 @@ import cdk = require('@aws-cdk/core');
 import { FargateAlbSvcStack } from '../lib/fargate-alb-svc';
 import { FargateCICDStack } from '../lib/fargate-cicd';
 import { ServerlessRestApiStack } from '../lib/serverless-rest-api';
-import { AwsFireLensStack } from '../lib/awsfirelens';
+// import { AwsFireLensStack } from '../lib/awsfirelens';
 import { FargateEventTarget } from '../lib/fargate-event-targets';
 import { EksIrsaStack } from '../lib/eks-irsa';
 import { EcsEc2Stack } from '../lib/ecs';
@@ -78,12 +78,12 @@ const eksNginxSvc = new EksNginxStack(app, 'EksNginxService', { env })
 /**
  * WIP
  */
-const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo', {
-    env: env,
-    containerName: 'nginx',
-    image: 'nginx',
-    port: 80
-})
+// const awsFireLensDemo = new AwsFireLensStack(app, 'awsFireLensDemo', {
+//     env: env,
+//     containerName: 'nginx',
+//     image: 'nginx',
+//     port: 80
+// })
 
 /**
  * WIP
