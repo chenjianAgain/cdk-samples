@@ -4,22 +4,23 @@ import iam = require('@aws-cdk/aws-iam');
 import codebuild = require('@aws-cdk/aws-codebuild');
 import events = require('@aws-cdk/aws-events');
 import targets = require('@aws-cdk/aws-events-targets');
+import { Alias } from '@aws-cdk/aws-kms';
 
 const NAME_PREFIX = 'autobuild'
 
-export interface ScheduledBuildProps extends cdk.StackProps {
+export interface ScheduledDockerBuildProps extends cdk.StackProps {
   source?: codebuild.ISource
   schedule?: events.Schedule
   repositoryName?: string
   timeout?: cdk.Duration
 }
 
-export class ScheduledBuild extends cdk.Stack {
+export class ScheduledDockerBuild extends cdk.Stack {
   readonly ecrRepository: ecr.Repository
   readonly source: codebuild.ISource
   readonly schedule: events.Schedule
 
-  constructor(scope: cdk.Construct, id: string, props: ScheduledBuildProps) {
+  constructor(scope: cdk.Construct, id: string, props: ScheduledDockerBuildProps) {
     super(scope, id, props);
     this.ecrRepository = new ecr.Repository(this, 'Repository', {
       repositoryName: props.repositoryName === undefined ? `${NAME_PREFIX}-${this.stackName.toLowerCase()}` : props.repositoryName,
@@ -90,3 +91,4 @@ export class ScheduledBuild extends cdk.Stack {
     rule.addTarget(new targets.CodeBuildProject(project));
   }
 }
+

@@ -10,13 +10,13 @@ In the example below, we build the Amazon Linux docker image from the `Dockerfil
 
 ```js
 import cdk = require('@aws-cdk/core');
-import { ScheduledBuild } from '@pahud/aws-codebuild-patterns'
+import { ScheduledDockderBuild } from '@pahud/aws-codebuild-patterns'
 import codebuild = require('@aws-cdk/aws-codebuild');
 import events = require('@aws-cdk/aws-events');
 
 const app = new cdk.App();
 
-const build = new ScheduledBuild(app, 'ScheduledBuild', {
+const build = new ScheduledDockerBuild(app, 'ScheduledBuild', {
   source: codebuild.Source.gitHub({
     owner: 'pahud',
     repo: 'amazonlinux-docker-autobuild'
