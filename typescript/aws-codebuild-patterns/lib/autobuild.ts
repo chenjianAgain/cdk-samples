@@ -11,6 +11,7 @@ export interface ScheduledBuildProps extends cdk.StackProps {
   source?: codebuild.ISource
   schedule?: events.Schedule
   repositoryName?: string
+  timeout?: cdk.Duration
 }
 
 export class ScheduledBuild extends cdk.Stack {
@@ -53,6 +54,7 @@ export class ScheduledBuild extends cdk.Stack {
     const project = new codebuild.Project(this, 'CodeBuildProject', {
       role: buildRole,
       source: this.source,
+      timeout: props.timeout,
       // Enable Docker AND custom caching
       cache: codebuild.Cache.local(codebuild.LocalCacheMode.DOCKER_LAYER, codebuild.LocalCacheMode.CUSTOM),
       environment: {
