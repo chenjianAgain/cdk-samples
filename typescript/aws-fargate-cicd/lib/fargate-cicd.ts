@@ -9,7 +9,7 @@ import ecs = require('@aws-cdk/aws-ecs');
 import ecsPatterns = require('@aws-cdk/aws-ecs-patterns');
 import codecommit = require('@aws-cdk/aws-codecommit');
 import { CodeBuildProject } from '@aws-cdk/aws-events-targets';
-import { Duration } from '@aws-cdk/core';
+import { Duration, RemovalPolicy } from '@aws-cdk/core';
 import { Vpc } from '@aws-cdk/aws-ec2';
 
 const DOCKER_IMAGE_PREFIX = 'fargate-cicd-sample'
@@ -19,6 +19,7 @@ export interface FargateCICDProps extends cdk.StackProps {
     source?: codebuild.ISource,
     repositoryName?: string,
     defaultVpc?: boolean
+    ecrRepoRemovalPolicy?: cdk.RemovalPolicy
 }
 
 export class FargateCICD extends cdk.Stack {
@@ -28,6 +29,7 @@ export class FargateCICD extends cdk.Stack {
         super(scope, id, props);
         this.ecrRepository = new ecr.Repository(this, 'Repository', {
             repositoryName: props.repositoryName || `${DOCKER_IMAGE_PREFIX}-${this.stackName.toLowerCase()}`,
+            removalPolicy: props.ecrRepoRemovalPolicy ? props.ecrRepoRemovalPolicy : cdk.RemovalPolicy.RETAIN
         });
 
         const buildRole = new iam.Role(this, 'CodeBuildIamRole', {
