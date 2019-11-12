@@ -1,0 +1,35 @@
+{
+  "name": "@pahud/aws-serverless-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "keywords": [
+    "aws",
+    "cdk",
+    "github",
+    "lambda",
+    "serverless",
+    "@pahud"
+  ],
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pahud/cdk-samples.git",
+    "directory": "typescript/aws-serverless-patterns"
+  },
+  "types": "lib/index.d.ts",
+  "author": "Pahud Hsieh <pahudnet@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.16.1",
+    "@aws-cdk/aws-events": "^1.16.1",
+    "@aws-cdk/aws-lambda": "^1.16.1"
+  }
+}
