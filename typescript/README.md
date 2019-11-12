@@ -29,7 +29,7 @@ $ cdk list
 
 - [x] **EcsEc2Service** Amazon ECS running with EC2
 - [x] **FargateAlbService** - A simple PHP service running with AWS Fargate and ALB
-- [x] **FargateCICD** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./fargate-cicd/README.md))
+- [x] **FargateCICD** - Building Fargate CI/CD pipelines from scratch with AWS CDK([README](./packages/aws-fargate-cicd/README.md))
 - [x] **ServerlessRestAPI** - Serverless REST API with AWS Lambda in VPC and Amazon API Gateweway([tweet](https://twitter.com/pahudnet/status/1192283115793764352))
 - [x] **fargateEventTarget** - Fargate as CloudWatch Events target 
 - [x] **APISIX** - [APISIX refarch on AWS](apisix/README.md)([tweet](https://twitter.com/pahudnet/status/1187770945471049729)) 
@@ -37,7 +37,7 @@ $ cdk list
 - [x] **TranscribeStack** - Amazon Transcribe with Auto SRT generation refarch([tweet](https://twitter.com/pahudnet/status/1183307485035151360)|[tweet](https://twitter.com/pahudnet/status/1183607846425903104))
 - [x] **LambdaRestApiStack** - API Gateway REST API with AWS Lambda as backend handler([tweet](https://twitter.com/pahudnet/status/1192283115793764352))
 - [ ] **awsFireLensDemo** - [WIP] AWS Fargate with Firelens log driver
-- [ ] **EksIrsaStack** Amazon EKS with IRSA support
+- [ ] **EksIrsaStack** - [WIP] Amazon EKS with IRSA support
 
 
 
