@@ -16,10 +16,6 @@ All you need to do is specify your source repo in this construct library.
 
 
 ```js
-/**
-* import from local
-* import fg = require('../lib/fargate-cicd');
-**/
 import fg = require('@pahud/aws-fargate-cicd');
 import cdk = require('@aws-cdk/core');
 import codebuild = require('@aws-cdk/aws-codebuild');
