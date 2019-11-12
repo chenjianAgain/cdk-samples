@@ -28,7 +28,7 @@
   "author": "Pahud Hsieh <pahudnet@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@aws-cdk/aws-codebuild": "^1.15.0",
-    "@aws-cdk/aws-events": "^1.15.0"
+    "@aws-cdk/aws-codebuild": "^1.16.1",
+    "@aws-cdk/aws-events": "^1.16.1"
   }
 }

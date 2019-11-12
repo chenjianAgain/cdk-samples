@@ -27,12 +27,12 @@
   "author": "Pahud Hsieh <pahudnet@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@aws-cdk/aws-codebuild": "^1.15.0",
-    "@aws-cdk/aws-codepipeline": "^1.15.0",
-    "@aws-cdk/aws-codepipeline-actions": "^1.15.0",
-    "@aws-cdk/aws-ecs": "^1.15.0",
-    "@aws-cdk/aws-ecs-patterns": "^1.15.0",
-    "@aws-cdk/aws-codecommit": "^1.15.0",
-    "@aws-cdk/aws-events-targets": "^1.15.0"
+    "@aws-cdk/aws-codebuild": "^1.16.1",
+    "@aws-cdk/aws-codepipeline": "^1.16.1",
+    "@aws-cdk/aws-codepipeline-actions": "^1.16.1",
+    "@aws-cdk/aws-ecs": "^1.16.1",
+    "@aws-cdk/aws-ecs-patterns": "^1.16.1",
+    "@aws-cdk/aws-codecommit": "^1.16.1",
+    "@aws-cdk/aws-events-targets": "^1.16.1"
   }
 }
