@@ -34,9 +34,10 @@ const env = {
 new fg.FargateCICD(app, 'FargateSampleStack', {
   env,
   defaultVpc: true,
-  source: codebuild.Source.bitBucket({
+  ecrRepoRemovalPolicy: cdk.RemovalPolicy.DESTROY,
+  source: codebuild.Source.gitHub({
     owner: 'pahud',
-    repo: 'express',
+    repo: 'flask-docker-sample',
     webhook: true,
     webhookFilters: [
       codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('master'),
