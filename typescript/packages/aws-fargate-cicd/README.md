@@ -8,7 +8,7 @@ On git push to the source repo, AWS CodeBuild will be triggered by webhook, buil
 
 All you need to do is specify your source repo in this construct library.
 
-![](https://raw.githubusercontent.com/pahud/cdk-samples/master/typescript/aws-fargate-cicd/images/fargate-cicd-cdk.png)
+![](https://raw.githubusercontent.com/pahud/cdk-samples/master/typescript/packages/aws-fargate-cicd/images/fargate-cicd-cdk.png)
 
 
 
