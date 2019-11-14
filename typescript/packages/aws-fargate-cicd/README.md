@@ -8,7 +8,7 @@ On git push to the source repo, AWS CodeBuild will be triggered by webhook, buil
 
 All you need to do is specify your source repo in this construct library.
 
-![](https://raw.githubusercontent.com/pahud/cdk-samples/master/typescript/aws-fargate-cicd/images/fargate-cicd-cdk.png)
+![](https://raw.githubusercontent.com/pahud/cdk-samples/master/typescript/packages/aws-fargate-cicd/images/fargate-cicd-cdk.png)
 
 
 
@@ -16,10 +16,6 @@ All you need to do is specify your source repo in this construct library.
 
 
 ```js
-/**
-* import from local
-* import fg = require('../lib/fargate-cicd');
-**/
 import fg = require('@pahud/aws-fargate-cicd');
 import cdk = require('@aws-cdk/core');
 import codebuild = require('@aws-cdk/aws-codebuild');
@@ -34,9 +30,10 @@ const env = {
 new fg.FargateCICD(app, 'FargateSampleStack', {
   env,
   defaultVpc: true,
-  source: codebuild.Source.bitBucket({
+  ecrRepoRemovalPolicy: cdk.RemovalPolicy.DESTROY,
+  source: codebuild.Source.gitHub({
     owner: 'pahud',
-    repo: 'express',
+    repo: 'flask-docker-sample',
     webhook: true,
     webhookFilters: [
       codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('master'),
