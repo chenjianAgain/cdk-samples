@@ -4,9 +4,9 @@ import iam = require('@aws-cdk/aws-iam');
 import codebuild = require('@aws-cdk/aws-codebuild');
 import events = require('@aws-cdk/aws-events');
 import targets = require('@aws-cdk/aws-events-targets');
+import { Stack } from '@aws-cdk/core';
 
 const NAME_PREFIX = 'autobuild'
-
 
 export interface BaseScheduledBuildProps extends cdk.StackProps {
   projectName?: string
@@ -25,7 +25,7 @@ export interface ScheduledBuildProps extends BaseScheduledBuildProps {
 /**
  * Scheduled build with the provided buildspec yaml
  */
-export class ScheduledBuild extends cdk.Stack {
+export class ScheduledBuild extends cdk.Construct {
   readonly ecrRepository: ecr.Repository
   readonly source: codebuild.ISource
   readonly schedule: events.Schedule
@@ -34,9 +34,13 @@ export class ScheduledBuild extends cdk.Stack {
 
 
   constructor(scope: cdk.Construct, id: string, props: ScheduledBuildProps) {
-    super(scope, id, props);
+    super(scope, id);
+
+
+    // const stackNameLowerCase = Stack.of(this).stackName.toLowerCase()
     this.ecrRepository = new ecr.Repository(this, 'Repository', {
-      repositoryName: props.repositoryName === undefined ? `${NAME_PREFIX}-${this.stackName.toLowerCase()}` : props.repositoryName,
+      // repositoryName: props.repositoryName === undefined ? props.projectName : props.repositoryName,
+      repositoryName: props.repositoryName,
       removalPolicy: props.ecrRepoRemovalPolicy ? props.ecrRepoRemovalPolicy : cdk.RemovalPolicy.RETAIN
     });
 
@@ -75,16 +79,19 @@ export class ScheduledBuild extends cdk.Stack {
 
 
 
-export class ScheduledDockerBuild extends cdk.Stack {
+export class ScheduledDockerBuild extends cdk.Construct {
   readonly projectName?: string
   readonly ecrRepository: ecr.Repository
   readonly source: codebuild.ISource
   readonly schedule: events.Schedule
 
   constructor(scope: cdk.Construct, id: string, props: ScheduledBuildProps) {
-    super(scope, id, props);
+    super(scope, id);
+
+    const stackNameLowerCase = Stack.of(this).stackName.toLowerCase()
     this.ecrRepository = new ecr.Repository(this, 'Repository', {
-      repositoryName: props.repositoryName === undefined ? `${NAME_PREFIX}-${this.stackName.toLowerCase()}` : props.repositoryName,
+      // repositoryName: props.repositoryName === undefined ? `${NAME_PREFIX}-${stackNameLowerCase}` : props.repositoryName,
+      repositoryName: props.repositoryName,
       removalPolicy: props.ecrRepoRemovalPolicy ? props.ecrRepoRemovalPolicy : cdk.RemovalPolicy.RETAIN
     });
 
