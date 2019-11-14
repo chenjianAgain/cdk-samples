@@ -6,6 +6,7 @@ react-fargate/
 cdk.context.json
 .DS*
 .vscode
+test
 
 # CDK asset staging directory
 .cdk.staging
