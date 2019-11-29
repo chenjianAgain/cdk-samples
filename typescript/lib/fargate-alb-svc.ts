@@ -8,11 +8,9 @@ export class FargateAlbSvcStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-//     const vpc = Vpc.fromLookup(this, 'VPC', {
-//       isDefault: true
-//     })
-    
-    const vpc = new Vpc(this, "HistoryVPC");
+    const vpc = Vpc.fromLookup(this, 'defaultstack/defaultvpc', {
+      isDefault: false
+    })
 
     const cluster = new Cluster(this, 'Cluster', {
       vpc
