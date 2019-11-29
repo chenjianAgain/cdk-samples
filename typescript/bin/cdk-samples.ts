@@ -16,7 +16,7 @@ const app = new cdk.App();
 
 const env = {
     account: '374801192098', 
-    region: 'us-west-1' 
+    region: 'us-west-2' 
 };
 
 
